@@ -1,19 +1,65 @@
-# Getting Started
-Install the dependencies and run the project
-```
-npm install
-npm start
-```
+# Oldagram (Instagram Clone)
 
-Head over to https://vitejs.dev/ to learn more about configuring vite
-## About Scrimba
+A solo project from the [Scrimba Frontend Developer Path](https://scrimba.com/fullstack-path-c0fullstack).  
+Built with **HTML, CSS, and JavaScript**, this project recreates the look and feel of an Instagram-style feed featuring classic self-portraits by artists such as Van Gogh, Courbet, and De Creux.
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Fullstack Developer Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+---
 
-- [Our courses](https://scrimba.com/courses)
-- [The Frontend Career Path](https://scrimba.com/fullstack-path-c0fullstack)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+## Features
 
-Happy Coding!
+- Responsive single-column feed layout (mobile-first)
+- Hardcoded initial post (Vincent van Gogh)
+- Styled per the Figma design using semantic HTML and modern CSS
+- Hover effects for interactive icons (like, comment, and share)
+- Clean, accessible structure using semantic tags
+
+---
+
+## Tech Stack
+
+- **HTML5** for structure  
+- **CSS3** (Flexbox, Grid) for layout and styling  
+- **JavaScript (ES6)** for stretch features (render posts, like counter)  
+- Deployed on **Vercel**
+
+---
+
+## Getting Started
+
+1. Clone this repository  
+   ```bash
+   git clone https://github.com/<your-username>/instagram-clone.git
+   ```
+2. Open the folder and run locally  
+   ```bash
+   cd instagram-clone
+   open index.html
+   ```
+   *(or use VS Code’s Live Server for live reload)*
+
+---
+
+## Future Improvements
+
+- Dynamic rendering of all posts using JavaScript  
+- Implement “like” functionality  
+- Add responsive breakpoints for tablet and desktop  
+- Include dark/light theme toggle
+
+---
+
+## Figma Design
+
+[View the original Figma file](https://www.figma.com/design/C38nagxJ4slAWFdQgDYqes/Oldagram--Copy-?node-id=0-1)
+
+---
+
+## Preview
+
+*(You can later add a screenshot of your deployed app here)*
+
+---
+
+## Author
+
+Developed by **[Your Name]** as part of the Scrimba Frontend Developer Path.
