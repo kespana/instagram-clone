@@ -108,7 +108,9 @@ html, body {
     margin: 0;
 }
 
-.likes-count, .user-name {
+.user-full-name, 
+.likes-count, 
+.user-handle {
     font-weight: 700;
 }
 
