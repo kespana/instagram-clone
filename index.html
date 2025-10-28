@@ -1,9 +1,55 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Oldagram</title>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+        <!-- Styles -->
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <img src="images/logo.png">
+        <header class="app-header">
+            <img class="logo" alt="logo" src="images/logo.png">
+            <img class="avatar" alt="account avatar" src="images/user-avatar.png">
+        </header>
+
+        <main class="app-main">
+            <article class="post">
+                <header class="post-header">
+                    <img class="avatar" alt="user avatar" src="images/avatar-vangogh.jpg">
+                    <div class="user-info">
+                        <p class="user-name">Vincent van Gogh</p>
+                        <p class="user-location">Zundert, Netherlands</p>
+                    </div>
+                </header>
+
+                <figure class="post-media">    
+                    <img alt="post image" src="images/post-vangogh.jpg">
+                </figure>
+
+                <section class="post-actions">
+                    <button class="like-button">
+                        <img alt="heart icon" src="images/icon-heart.png">
+                    </button>
+                    <button class="comment-button">
+                        <img alt="comment icon" src="images/icon-comment.png">
+                    </button>
+                    <button class="dm-button">
+                        <img alt="dm icon" src="images/icon-dm.png">
+                    </button>
+                </section>
+
+                <section class="post-likes">
+                    <p class="likes-count">21 likes</p>
+                <section class="post-caption">
+                    <p><span class="user-name">vincey1853</span> just took a few mushrooms lol</p>
+                </section>
+            </article>
+        </main>
         <script src="index.js"></script>
     </body>
 </html>
