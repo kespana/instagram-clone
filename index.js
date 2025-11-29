@@ -44,14 +44,14 @@ function renderPost(post) {
                 </figure>
 
                 <section class="post-actions">
-                    <button class="like-button">
-                        <img alt="heart icon" src="images/icon-heart.png">
+                    <button class="like-button" data-like="${post.id}">
+                        <i class="fa-regular fa-heart"></i>
                     </button>
-                    <button class="comment-button">
-                        <img alt="comment icon" src="images/icon-comment.png">
+                    <button class="comment-button" data-comment="${post.id}">
+                        <i class="fa-regular fa-comment"></i>
                     </button>
-                    <button class="dm-button">
-                        <img alt="dm icon" src="images/icon-dm.png">
+                    <button class="dm-button" data-share="${post.id}">
+                        <i class="fa-regular fa-paper-plane"></i>
                     </button>
                 </section>
 
