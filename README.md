@@ -62,4 +62,4 @@ Built with **HTML, CSS, and JavaScript**, this project recreates the look and fe
 
 ## Author
 
-Developed by **[Your Name]** as part of the Scrimba Frontend Developer Path.
+Developed by **[Kriselda Neri]** as part of the Scrimba Frontend Developer Path.
