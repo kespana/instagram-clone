@@ -83,6 +83,10 @@ html, body {
     line-height: 1;
 }
 
+.liked {
+    color: red;
+  }
+
 /* Shared utilities */
 .post-header, .post-actions {
     gap: 12px;
