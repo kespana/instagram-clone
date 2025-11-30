@@ -1,6 +1,7 @@
 # Oldagram (Instagram Clone)
 
-A solo project from the [Scrimba Frontend Developer Path](https://scrimba.com/fullstack-path-c0fullstack).  
+A mobile-first Instagram-style feed built as part of the [Scrimba Frontend Developer Path](https://scrimba.com/fullstack-path-c0fullstack), focusing on clean UI structure, dynamic rendering, and interactive features.
+
 Built with **HTML, CSS, and JavaScript**, this project recreates the look and feel of an Instagram-style feed featuring classic self-portraits by artists such as Van Gogh, Courbet, and De Creux.
 
 ---
@@ -8,9 +9,10 @@ Built with **HTML, CSS, and JavaScript**, this project recreates the look and fe
 ## Features
 
 - Responsive single-column feed layout (mobile-first)
-- Hardcoded initial post (Vincent van Gogh)
+- Posts rendered dynamically from a data module
+- Interactive like functionality with live state updates
 - Styled per the Figma design using semantic HTML and modern CSS
-- Hover effects for interactive icons (like, comment, and share)
+- Font Awesome icons with hover effects
 - Clean, accessible structure using semantic tags
 
 ---
@@ -41,10 +43,11 @@ Built with **HTML, CSS, and JavaScript**, this project recreates the look and fe
 
 ## Future Improvements
 
-- Dynamic rendering of all posts using JavaScript  
-- Implement “like” functionality  
-- Add responsive breakpoints for tablet and desktop  
-- Include dark/light theme toggle
+- Implement share interaction
+- Add comment input and comment rendering
+- Add modal UI for comment viewing
+- Add responsive breakpoints for tablet and desktop
+- Add dark/light theme toggle
 
 ---
 
@@ -56,7 +59,7 @@ Built with **HTML, CSS, and JavaScript**, this project recreates the look and fe
 
 ## Preview
 
-*(You can later add a screenshot of your deployed app here)*
+*(To be added later)*
 
 ---
 
