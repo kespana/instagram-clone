@@ -8,11 +8,9 @@ html, body {
 
 .app-header {
     height: 67px;
-    /* max-width: 375px; */
     display: flex;
     align-items: center;
     padding: 5px 10px;
-    /* margin-inline: auto; */
     justify-content: space-between;
     border-bottom: 1px solid #c6c6c6;
 }
@@ -36,7 +34,7 @@ html, body {
 .post-header {
     display: flex;
     align-items: center;
-    padding: 12px 10px;
+    padding-block: 12px;
 }
 
 .post-header p {
@@ -45,6 +43,7 @@ html, body {
 
 .user-location {
     font-weight: 400;
+    color: #555;
 }
 
 .post-media { 
@@ -59,7 +58,6 @@ html, body {
 .post-actions {
     display: flex;
     padding-top: 10px;
-    padding-left: 10px;
 }
 
 .post-actions button {
@@ -70,7 +68,7 @@ html, body {
 }
 
 .post-actions button:hover i, 
-.post-actions button:focus i {
+.post-actions button:focus-visible i {
     opacity: 0.6;
 }
 
@@ -87,16 +85,23 @@ html, body {
     color: red;
   }
 
+.shared {
+    color: #3B82F6;
+}
+
 /* Shared utilities */
 .post-header, .post-actions {
     gap: 12px;
 }
 
-.post-header, .post-likes {
+.post-header,
+.post-likes,
+.post-caption,
+.post-actions {
     padding-inline: 10px;
 }
 
-.post-media img, .post-actions img {
+.post-media img {
     display: block;
 }
 

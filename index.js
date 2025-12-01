@@ -4,6 +4,10 @@ document.addEventListener("click", function(e) {
     if (e.target.dataset.like) {
         handleLikeClick(e.target.dataset.like)
     }
+
+    if (e.target.dataset.share) {
+        handleShareClick(e.target.dataset.share)
+    }
 })
 
 function handleLikeClick(postId) {
@@ -41,14 +45,41 @@ function handleLikeClick(postId) {
     }
 }
 
+function handleShareClick(postId) {
+    const targetPostObj = posts.filter(function(post) {
+        return post.uuid === postId
+    })[0]
+
+    targetPostObj.isShared = !targetPostObj.isShared
+
+    const postElement = document.querySelector(`[data-post-id="${postId}"]`)
+    if (!postElement) return
+
+    const shareIcon = postElement.querySelector("[data-share]")
+    if (shareIcon) {
+        if (targetPostObj.isShared) {
+            shareIcon.classList.add("shared")
+        }
+        else {
+            shareIcon.classList.remove("shared")
+        }
+    }
+
+}
+
 function renderPost(post) {
 
     let likeIconClass = ''
     let likeStateClass = 'fa-regular'
+    let shareIconClass = ''
 
     if (post.isLiked) {
         likeIconClass = 'liked'
         likeStateClass = 'fa-solid'
+    }
+
+    if (post.isShared) {
+        shareIconClass = 'shared'
     }
 
     return `
@@ -73,7 +104,7 @@ function renderPost(post) {
                         <i class="fa-regular fa-comment" data-comment="${post.uuid}"></i>
                     </button>
                     <button class="dm-button">
-                        <i class="fa-regular fa-paper-plane" data-share="${post.uuid}"></i>
+                        <i class="fa-solid fa-retweet ${shareIconClass}" data-share="${post.uuid}"></i>
                     </button>
                 </section>
 
