@@ -58,12 +58,10 @@ function handleShareClick(postId) {
     const shareIcon = postElement.querySelector("[data-share]")
     if (shareIcon) {
         if (targetPostObj.isShared) {
-            shareIcon.classList.remove("fa-regular")
-            shareIcon.classList.add("fa-solid", "shared")
+            shareIcon.classList.add("shared")
         }
         else {
-            shareIcon.classList.remove("fa-solid", "shared")
-            shareIcon.classList.add("fa-regular") 
+            shareIcon.classList.remove("shared")
         }
     }
 
