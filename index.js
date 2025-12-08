@@ -119,14 +119,16 @@ function handleCommentSubmit(postId, form) {
     })
 
     commentInputEl.value = ''
-
     targetPostObj.isCommenting = false
 
     const postElement = document.querySelector(`[data-post-id="${postId}"]`)
     if (!postElement) return
 
-    postElement.outerHTML = renderPost(targetPostObj)
+    const captionElement = postElement.querySelector(".post-caption")
+    if (!captionElement) return
 
+    const newCaptionHtml = renderCaptionSection(targetPostObj)
+    captionElement.outerHTML = newCaptionHtml
 }
 
 function renderPost(post) {
