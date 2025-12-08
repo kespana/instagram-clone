@@ -8,6 +8,22 @@ document.addEventListener("click", function(e) {
     if (e.target.dataset.share) {
         handleShareClick(e.target.dataset.share)
     }
+
+    const commentBtn = e.target.closest(".comment-button")
+    if (commentBtn && commentBtn.querySelector("[data-comment]")) {
+        const postId = commentBtn.querySelector("[data-comment]").dataset.comment
+        handleCommentClick(postId)
+    }
+
+    if (e.target.closest(".comment-submit")) {
+        e.preventDefault()
+
+        const form = e.target.closest("[data-comment-form]")
+        if (!form) return
+
+        const postId = form.dataset.commentForm
+        handleCommentSubmit(postId, form)
+    }
 })
 
 function handleLikeClick(postId) {
@@ -67,11 +83,58 @@ function handleShareClick(postId) {
 
 }
 
+function handleCommentClick(postId) {
+    const targetPostObj = posts.filter(function(post) {
+        return postId === post.uuid
+    })[0]
+    if (!targetPostObj) return
+
+    targetPostObj.isCommenting = !targetPostObj.isCommenting
+
+    const postElement = document.querySelector(`[data-post-id="${postId}"]`)
+    if (!postElement) return
+
+    const captionElement = postElement.querySelector(".post-caption")
+    if (!captionElement) return
+
+    const newCaptionHtml = renderCaptionSection(targetPostObj)
+    captionElement.outerHTML = newCaptionHtml
+}
+
+function handleCommentSubmit(postId, form) {
+    const commentInputEl = form.querySelector(".comment-input")
+    if (!commentInputEl) return
+    
+    const commentText = commentInputEl.value.trim()
+    if (!commentText) return
+
+    const targetPostObj = posts.filter(function(post) {
+        return post.uuid === postId
+    })[0]
+    if (!targetPostObj) return
+
+    targetPostObj.comments.push({
+        username: "kmntest",
+        text: commentText
+    })
+
+    commentInputEl.value = ''
+
+    targetPostObj.isCommenting = false
+
+    const postElement = document.querySelector(`[data-post-id="${postId}"]`)
+    if (!postElement) return
+
+    postElement.outerHTML = renderPost(targetPostObj)
+
+}
+
 function renderPost(post) {
 
     let likeIconClass = ''
     let likeStateClass = 'fa-regular'
     let shareIconClass = ''
+    let commentInputHtml = ''
 
     if (post.isLiked) {
         likeIconClass = 'liked'
@@ -80,6 +143,30 @@ function renderPost(post) {
 
     if (post.isShared) {
         shareIconClass = 'shared'
+    }
+
+    if (post.isCommenting) {
+        commentInputHtml = `
+            <form class="comment-form" data-comment-form="${post.uuid}">
+                <input class="comment-input" name="comment" placeholder="Add a comment...">
+                <button class="comment-submit">
+                    <i class="fa-solid fa-arrow-up"></i>    
+                </button>
+            </form>
+        `
+    }
+
+    let commentsHtml = ''
+
+    if (post.comments && post.comments.length > 0) {
+        for (const comment of post.comments) {
+            commentsHtml += `
+                <p class="post-comment">
+                    <span class="user-handle">${comment.username}</span>
+                    ${comment.text}
+                </p>
+            `
+        }
     }
 
     return `
@@ -112,9 +199,7 @@ function renderPost(post) {
                     <p class="likes-count">${post.likes} likes</p>
                 </section>
 
-                <section class="post-caption">
-                    <p><span class="user-handle">${post.username}</span> <span class="post-caption-text">${post.comment}</span></p>
-                </section>
+                ${renderCaptionSection(post)}
             </article>
         `;
 }
@@ -130,6 +215,43 @@ function renderPosts() {
     }
 
     postsContainer.innerHTML = allPosts;
+}
+
+function renderCaptionSection(post) {
+    let commentsHtml = ''
+    if (post.comments && post.comments.length > 0) {
+        for (const comment of post.comments) {
+            commentsHtml += `
+                <p class="post-comment">
+                    <span class="user-handle">${comment.username}</span>
+                    ${comment.text}
+                </p>
+            `
+        }
+    }
+
+    let commentInputHtml = ''
+    if (post.isCommenting) {
+        commentInputHtml = `
+            <form class="comment-form" data-comment-form="${post.uuid}">
+                <input class="comment-input" name="comment" placeholder="Add a comment...">
+                <button class="comment-submit">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </form>
+        `
+    }
+
+    return `
+        <section class="post-caption">
+            <p>
+                <span class="user-handle">${post.username}</span>
+                <span class="post-caption-text">${post.caption}</span>
+            </p>
+            ${commentsHtml}
+            ${commentInputHtml}
+        </section>
+    `
 }
 
 renderPosts()
